@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./vtt_back
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./vtt_back:/app
+
+  frontend:
+    build:
+      context: ./vtt_front
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./vtt_front:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+
+    stdin_open: true
+    tty: true
+
