@@ -7,5 +7,8 @@ export default defineConfig({
   server: {
     host: true, // allow external access
     port: 3000, // optional
+    watch: {
+      usePolling: true,
+    }
   },
 })
